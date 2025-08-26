@@ -23,6 +23,8 @@
  if(isset($_POST['msg'])){
      array_push($msg_list,$_POST['msg']);
  }
+ 
+ $out_msg = array_slice($msg_list, -10);
 
  if(!is_dir(dirname($file))){
      mkdir(dirname($file),0700,true);
@@ -51,7 +53,7 @@
 
  <p>---------...</p>
  <?php 
-    foreach($msg_list as $msg){
+    foreach($out_msg as $msg){
  ?>
      <p><?php echo $date . '______' . $msg; ?></p>
  <?php
